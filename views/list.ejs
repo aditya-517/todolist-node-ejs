@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <!-- kindOfDay is a js object -->
+    <!-- <% %> is used for conditional statements of js -->
+
+
+    <div class="box" id="heading">
+        <h1>
+            <%= kindOfDay %>
+        </h1>
+
+    </div>
+
+    <div class="box">
+        
+        <!-- This will add new list item for each task added -->
+        <% for(var i=0; i< newListItems.length ; i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newListItems[i] %></p>
+            </div>
+            <% } %>
+
+            <form action="/" method="post" class="item">
+                <input type="text" name="newItem" placeholder="Add Task" autocomplete="off">
+                <button type="submit">+</button>
+            </form>
+    </div>
+</body>
+
+</html>
