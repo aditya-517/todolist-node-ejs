@@ -100,9 +100,11 @@ app.post("/", function(req, res){
     }
     else{
         List.findOne({name: listName}, function(err, foundList){
-            foundList.items.push(item);
-            foundList.save();
-            res.redirect("/" + listName);
+            if(!err){
+                foundList.items.push(item);
+                foundList.save();
+                res.redirect("/" + listName);
+            }
         })
     }
 });
@@ -132,8 +134,6 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
 }
-app.listen(port);
-
 app.listen(port, function () {
     console.log("Server has started successfully");
 });
